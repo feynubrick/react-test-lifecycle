@@ -1,51 +1,59 @@
 import React from 'react';
-import Image from './Image';
+import ButtonWrapper from './ButtonWrapper';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      clicked: false
+      count: 0
     };
-    this.text = `ReactDOM.render(<App />, document.getElementById('root'))`;
+
     this.onClickButton = this.onClickButton.bind(this);
   }
 
+  // ################################################################
+  // ### Life Cycle Methods
+  // ################################################################
   componentDidMount() {
-    console.log('App mounted!');
+    console.log('App: componentDidMount called!');
   }
 
   componentWillUnmount() {
-    console.log('App unmounted!');
+    console.log('App: componentWillUnmount called!');
   }
 
   componentDidUpdate() {
-    console.log('App updated!');
+    console.log('App: componentDidUpdate called!');
   }
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('App: shouldComponentUpdate called!');
+  //   return true;
+  // }
+  // ################################################################
+
   onClickButton() {
-    // console.log('clicked!');
-    this.setState(prevState => ({ clicked: !prevState.clicked }));
+    console.log('----------------------------');
+    console.log('    Button clicked!!!');
+    console.log('----------------------------');
+    this.setState({ count: this.state.count + 1 });
   }
 
   render() {
-    console.log('App render');
-    let buttonText;
-    if (this.state.clicked) {
-      buttonText = '개발자 버전 보기';
+    console.log('App: render called!');
+    let color;
+
+    if (this.state.count % 3 === 0) {
+      color = `FloralWhite`;
     } else {
-      buttonText = '일반인 버전 보기';
+      color = `FireBrick`;
     }
 
     return (
       <div>
-        <h1>React</h1>
-        <div>
-          <button onClick={this.onClickButton}>{buttonText}</button>
-          <br />
-          {this.state.clicked ? <Image /> : <h2>{this.text}</h2>}
-        </div>
+        <h1>{this.state.count}</h1>
+        <ButtonWrapper color={color} onClickButton={this.onClickButton} />
       </div>
     );
   }
