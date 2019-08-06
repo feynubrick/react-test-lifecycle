@@ -1,33 +1,35 @@
-import React from 'react';
+import React from "react";
 
 class ButtonWrapper extends React.Component {
   // ################################################################
   // ### Life Cycle Methods
   // ################################################################
   componentDidMount() {
-    console.log('*** ButtonWrapper: componentDidMount called!');
+    console.log("*** ButtonWrapper: componentDidMount called!");
   }
 
   componentDidUpdate() {
-    console.log('*** ButtonWrapper: componentDidUpdate called!');
+    console.log("*** ButtonWrapper: componentDidUpdate called!");
   }
 
   componentWillUnmount() {
-    console.log('*** ButtonWrapper: componentWillUnmount called!');
+    console.log("*** ButtonWrapper: componentWillUnmount called!");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('*** ButtonWrapper: shouldComponentUpdate called!');
+    console.log("*** ButtonWrapper: shouldComponentUpdate called!");
     if (this.props.color !== nextProps.color) {
+      console.log(" ==> component will be updated!!!");
       return true;
     } else {
+      console.log(" ==> component won't be updated!!!");
       return false;
     }
   }
   // ################################################################
 
   render() {
-    console.log('*** ButtonWrapper: render called');
+    console.log("*** ButtonWrapper: render called");
     let style = { backgroundColor: this.props.color, padding: `10px` };
 
     return (

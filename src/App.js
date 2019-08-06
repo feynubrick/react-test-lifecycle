@@ -1,8 +1,9 @@
-import React from 'react';
-import ButtonWrapper from './ButtonWrapper';
+import React from "react";
+import ButtonWrapper from "./ButtonWrapper";
 
 class App extends React.Component {
   constructor(props) {
+    console.log("App: constructor called!");
     super(props);
 
     this.state = {
@@ -16,38 +17,38 @@ class App extends React.Component {
   // ### Life Cycle Methods
   // ################################################################
   componentDidMount() {
-    console.log('App: componentDidMount called!');
+    console.log("App: componentDidMount called!");
   }
 
   componentWillUnmount() {
-    console.log('App: componentWillUnmount called!');
+    console.log("App: componentWillUnmount called!");
   }
 
   componentDidUpdate() {
-    console.log('App: componentDidUpdate called!');
+    console.log("App: componentDidUpdate called!");
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('App: shouldComponentUpdate called!');
-  //   return true;
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("App: shouldComponentUpdate called!");
+    return true;
+  }
   // ################################################################
 
   onClickButton() {
-    console.log('----------------------------');
-    console.log('    Button clicked!!!');
-    console.log('----------------------------');
+    console.log("----------------------------");
+    console.log("    Button clicked!!!");
+    console.log("----------------------------");
     this.setState({ count: this.state.count + 1 });
   }
 
   render() {
-    console.log('App: render called!');
+    console.log("App: render called!");
     let color;
 
     if (this.state.count % 3 === 0) {
-      color = `FloralWhite`;
-    } else {
       color = `FireBrick`;
+    } else {
+      color = `FloralWhite`;
     }
 
     return (
