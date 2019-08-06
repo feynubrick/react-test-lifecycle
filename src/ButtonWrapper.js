@@ -4,6 +4,11 @@ class ButtonWrapper extends React.Component {
   // ################################################################
   // ### Life Cycle Methods
   // ################################################################
+  constructor(props) {
+    super(props);
+    console.log("*** ButtonWrapper: constructor called!");
+  }
+
   componentDidMount() {
     console.log("*** ButtonWrapper: componentDidMount called!");
   }
